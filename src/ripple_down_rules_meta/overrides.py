@@ -5,7 +5,6 @@ from dataclasses import dataclass
 from os.path import dirname
 from typing import Type, ClassVar
 
-import ripple_down_rules
 from ripple_down_rules import (DependsOn as OGDependsOn, RDRDecorator, TrackedObjectMixin,
                                has, isA)
 
@@ -14,7 +13,6 @@ _overrides = []
 
 def override_ripple_down_rules(name):
     def decorator(obj):
-        setattr(getattr(ripple_down_rules, name), '_overridden_by', obj)
         _overrides.append((name, obj))
         return obj
 

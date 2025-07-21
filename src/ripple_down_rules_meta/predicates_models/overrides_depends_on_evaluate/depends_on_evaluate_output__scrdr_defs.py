@@ -3,7 +3,7 @@ from typing_extensions import Type
 from ripple_down_rules import has, dependsOn
 from ripple_down_rules.datastructures.tracked_object import TrackedObjectMixin
 from ripple_down_rules.rules import Rule
-from ripple_down_rules_meta.overrides import DependsOn
+from ripple_down_rules_meta import DependsOn
 
 
 def conditions_3929361033208322153670901849644072096(case) -> bool:
