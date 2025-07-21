@@ -25,8 +25,7 @@ def override_ripple_down_rules(name):
 @dataclass
 class DependsOn(OGDependsOn):
     models_dir: ClassVar[str] = os.path.join(dirname(__file__), "predicates_models")
-    rdr_decorator: RDRDecorator = RDRDecorator(models_dir, (bool,), True,
-                                                fit=False, package_name="ripple_down_rules_meta")
+    rdr_decorator: RDRDecorator = RDRDecorator(models_dir, (bool,), True, package_name="ripple_down_rules_meta")
     """
     An rdr decorator used to fit rules for determining the dependencies.
     """
