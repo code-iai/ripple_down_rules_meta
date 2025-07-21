@@ -1,7 +1,9 @@
 from __future__ import annotations
 
+import os
 from dataclasses import dataclass
-from typing import Type
+from os.path import dirname
+from typing import Type, ClassVar
 
 import ripple_down_rules
 from ripple_down_rules import (DependsOn as OGDependsOn, RDRDecorator, TrackedObjectMixin,
@@ -20,9 +22,10 @@ def override_ripple_down_rules(name):
 
 
 @override_ripple_down_rules("DependsOn")
-@dataclass(eq=False)
+@dataclass
 class DependsOn(OGDependsOn):
-    rdr_decorator: RDRDecorator = RDRDecorator(OGDependsOn.models_dir, (bool,), True,
+    models_dir: ClassVar[str] = os.path.join(dirname(__file__), "predicates_models")
+    rdr_decorator: RDRDecorator = RDRDecorator(models_dir, (bool,), True,
                                                 fit=False, package_name="ripple_down_rules_meta")
     """
     An rdr decorator used to fit rules for determining the dependencies.
