@@ -3,7 +3,7 @@ from __future__ import annotations
 import os
 from dataclasses import dataclass
 from os.path import dirname
-from typing import Type, ClassVar
+from typing_extensions import Type, ClassVar
 
 from ripple_down_rules import (DependsOn as OGDependsOn, RDRDecorator, TrackedObjectMixin,
                                has, isA)
